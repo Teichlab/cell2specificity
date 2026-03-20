@@ -29,11 +29,10 @@ atlas cohort.
 from __future__ import annotations
 
 from collections import defaultdict
-from typing import Dict, List, Optional, Union
+from typing import Dict, List, Optional
 
 import numpy as np
 import pandas as pd
-from scipy.stats import chi2_contingency
 from sklearn.metrics import roc_curve
 
 __all__ = [

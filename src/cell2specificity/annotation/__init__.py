@@ -34,7 +34,6 @@ Examples
 
 from __future__ import annotations
 
-import importlib.resources
 from pathlib import Path
 from typing import Union
 

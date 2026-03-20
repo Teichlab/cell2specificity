@@ -18,7 +18,6 @@ from pathlib import Path
 from cell2specificity.motif_based_inference import (
     build_donor_motif_matrix,
     map_motifs_to_metadata,
-    score_pathogen_exposure,
     predict_pathogen_exposure,
     score_hla,
     predict_hla_type,
@@ -167,7 +166,7 @@ class TestPathogenExposure:
                           columns=["motif", "predicted_pathogen"])
         result = predict_pathogen_exposure(dmm, motifs_disease=md, threshold=1)
         assert result.dtypes.apply(
-            lambda dt: dt == bool or np.issubdtype(dt, np.bool_)
+            lambda dt: np.issubdtype(dt, np.bool_)
         ).all()
 
     def test_higher_threshold_fewer_positives(self, mini_clone_df, mini_motif_to_label):
@@ -216,7 +215,7 @@ class TestHLAInference:
     def test_predict_hla_returns_boolean(self, toy_dmm):
         result = predict_hla_type(toy_dmm)
         assert result.dtypes.apply(
-            lambda dt: dt == bool or np.issubdtype(dt, np.bool_)
+            lambda dt: np.issubdtype(dt, np.bool_)
         ).all()
 
     def test_predict_hla_shape(self, toy_dmm):

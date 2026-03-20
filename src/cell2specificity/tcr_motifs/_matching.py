@@ -29,8 +29,8 @@ Input DataFrames must have the compact column names produced by
 
 from __future__ import annotations
 
-from dataclasses import dataclass, field
-from typing import Dict, List, Optional, Set, Tuple
+from dataclasses import dataclass
+from typing import Dict, List, Set, Tuple
 
 import pandas as pd
 
