@@ -19,7 +19,6 @@ Starting from scRNA+TCR-seq data, the toolkit enables:
 - **Fast TCR matching:** map new repertoires onto atlas motifs
 - **HLA genotype inference:** impute HLA alleles from MHC-restricted public TCR motifs
 - **Pathogen exposure inference:** predict donor infection history from TCR motif composition
-- **Structural modeling:** run TCRdock and classify TCR-pHLA binding *TBC*
 
 
 ## Installation
@@ -43,7 +42,7 @@ Python ≥ 3.10 required.
 ```python
 import pandas as pd
 from cell2specificity.tcr_motifs import preprocess_tcr_table, annotate_invariant
-from cell2specificity.specificity import build_donor_motif_matrix, predict_pathogen_exposure, predict_hla_type
+from cell2specificity.motif_based_inference import build_donor_motif_matrix, predict_pathogen_exposure, predict_hla_type
 from cell2specificity.annotation import annotate
 
 # 1. Annotate cell states with bundled CellTypist models
@@ -76,7 +75,7 @@ with the package:
 | `paninfection_CD8_level3` | Fine-grained CD8 T cell subtypes (12 states) |
 
 Two reference tables for clinical inference are bundled under
-`src/cell2specificity/specificity/data/`:
+`src/cell2specificity/motif_based_inference/data/`:
 
 - `disease_associated_motifs_hla.csv` — motif → predicted pathogen
 - `df_motifs_with_hla.csv` — motif → MHC-I restricted HLA allele + metadata
@@ -86,22 +85,18 @@ Two reference tables for clinical inference are bundled under
 
 ```
 src/cell2specificity/
-├── tcr_motifs/     # Preprocessing, invariant annotation, seed-and-extend
-│   │               # matching, Cell2TCR motif inference, VDJdb queries
+├── tcr_motifs/              # Preprocessing, motif inference and annotation, seed-and-extend matching, VDJdb queries
 │   ├── _preprocess.py
 │   ├── _invariant.py
 │   └── _matching.py
-├── specificity/    # Pathogen exposure + HLA inference from motif composition
+├── motif_based_inference/   # Pathogen exposure + HLA inference from motif composition
 │   ├── _predict.py
-│   └── data/       # Bundled reference CSVs
-├── annotation/     # CellTypist wrapper + bundled pan-infection models
-│   └── models/     # .pkl model files
-├── structural/     # TCRdock + random forest binding classifier [collaborator]
-├── hla/            # HLA genotype inference from raw scRNA-seq reads
-├── epitope/        # NetMHCpan wrapper and genome-wide peptide scanning
-└── utils/          # Shared helpers
+│   └── data/                # Bundled reference CSVs
+├── annotation/              # CellTypist wrapper + bundled pan-infection models
+│   └── models/              # .pkl model files
+└── utils/                   # Shared helpers
 tests/
-├── data/           # Toy atlas subset for self-contained testing
+├── data/           # Test data subset for self-contained testing
 └── test_*.py
 docs/
 └── tutorial.md     # Full worked tutorial
@@ -121,8 +116,7 @@ compute required.
 ## Contributing
 
 See [CONTRIBUTING.md](CONTRIBUTING.md). New modules follow the `src/` layout
-and must include tests and docstrings. The `structural/` module is reserved for
-a collaborator — see its docstring for the intended API.
+and must include tests and docstrings.
 
 
 ## License

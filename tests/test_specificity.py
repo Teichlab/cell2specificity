@@ -1,5 +1,5 @@
 """
-Tests for cell2specificity.specificity
+Tests for cell2specificity.motif_based_inference
 
 Run with:  pytest tests/test_specificity.py -v
 
@@ -15,7 +15,7 @@ import pandas as pd
 import pytest
 from pathlib import Path
 
-from cell2specificity.specificity import (
+from cell2specificity.motif_based_inference import (
     build_donor_motif_matrix,
     map_motifs_to_metadata,
     score_pathogen_exposure,

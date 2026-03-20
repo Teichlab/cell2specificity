@@ -127,7 +127,7 @@ print(df_query[["n_ref_hits", "n_ref_motifs", "ref_motifs"]].head())
 ## 4. Pathogen exposure inference
 
 ```python
-from cell2specificity.specificity import (
+from cell2specificity.motif_based_inference import (
     build_donor_motif_matrix,
     predict_pathogen_exposure,
 )
@@ -146,7 +146,7 @@ print(exposure)
 ## 5. HLA genotype inference
 
 ```python
-from cell2specificity.specificity import (
+from cell2specificity.motif_based_inference import (
     score_hla,
     predict_hla_type,
 )

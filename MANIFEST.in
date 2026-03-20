@@ -1,3 +1,2 @@
 recursive-include src/cell2specificity/annotation/models *.pkl
-recursive-include src/cell2specificity/specificity/data *.csv
-recursive-include src/cell2specificity/structural/models *
+recursive-include src/cell2specificity/motif_based_inference/data *.csv
