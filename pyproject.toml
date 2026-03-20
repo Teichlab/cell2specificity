@@ -1,0 +1,75 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "cell2specificity"
+version = "0.1.0"
+description = "Systematic antigen-specificity inference from single-cell TCR and transcriptomic data"
+readme = "README.md"
+license = { text = "Apache-2.0" }
+authors = [
+  { name = "Lisa M Dratva", email = "lmd76@cam.ac.uk" },
+]
+requires-python = ">=3.10"
+keywords = ["TCR", "single-cell", "immunology", "HLA", "antigen-specificity", "scRNA-seq"]
+classifiers = [
+  "Development Status :: 3 - Alpha",
+  "Intended Audience :: Science/Research",
+  "Topic :: Scientific/Engineering :: Bio-Informatics",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3.10",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+]
+
+# Core dependencies
+dependencies = [
+  "anndata>=0.10",
+  "scanpy>=1.10",
+  "numpy>=1.24",
+  "pandas>=2.0",
+  "scikit-learn>=1.4",
+  "scipy>=1.11",
+  "celltypist>=1.6",
+]
+
+[project.optional-dependencies]
+# TCR motif inference (heavy — only needed for run_motif_inference)
+motifs = [
+  "tcrdist3>=0.2",
+  "igraph>=0.11",
+  "leidenalg>=0.10",
+]
+# Structure-informed binding classification (to be populated by contributor)
+structural = []
+dev = [
+  "pytest>=8",
+  "pytest-cov",
+  "ruff",
+  "mypy",
+  "pre-commit",
+]
+docs = [
+  "sphinx",
+  "sphinx-rtd-theme",
+  "myst-parser",
+]
+all = [
+  "cell2specificity[motifs,dev]",
+]
+
+[project.urls]
+"Homepage" = "https://github.com/needle-bio/cell2specificity"
+"Bug Tracker" = "https://github.com/needle-bio/cell2specificity/issues"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.ruff]
+line-length = 100
+src = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+cache_dir = "/tmp/.pytest_cache"

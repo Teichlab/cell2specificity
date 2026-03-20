@@ -1,0 +1,3 @@
+# Place the following bundled reference files here:
+#   disease_associated_motifs_hla.csv   — motif → predicted_pathogen
+#   df_motifs_with_hla.csv              — motif → MHC-I restricted allele + metadata

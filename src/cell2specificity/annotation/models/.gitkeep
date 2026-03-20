@@ -1,0 +1,7 @@
+# Place the following .pkl files here before using bundled models:
+#   paninfection_annotation_level_2.pkl
+#   paninfection_CD4_annotation_level_3.pkl
+#   paninfection_CD8_annotation_level_3.pkl
+#
+# These files are not committed to the repository (see .gitignore).
+# Distribute them via a separate release asset or shared storage.
