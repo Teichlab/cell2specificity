@@ -9,7 +9,7 @@ description = "Systematic antigen-specificity inference from single-cell TCR and
 readme = "README.md"
 license = { text = "Apache-2.0" }
 authors = [
-  { name = "Lisa M Dratva", email = "lmd76@cam.ac.uk" },
+  { name = "Lisa M Dratva"},
 ]
 requires-python = ">=3.10"
 keywords = ["TCR", "single-cell", "immunology", "HLA", "antigen-specificity", "scRNA-seq"]
@@ -41,7 +41,7 @@ motifs = [
   "igraph>=0.11",
   "leidenalg>=0.10",
 ]
-# Structure-informed binding classification (to be populated by contributor)
+# Structure-informed binding classification (TBC)
 structural = []
 dev = [
   "pytest>=8",
@@ -60,8 +60,8 @@ all = [
 ]
 
 [project.urls]
-"Homepage" = "https://github.com/needle-bio/cell2specificity"
-"Bug Tracker" = "https://github.com/needle-bio/cell2specificity/issues"
+"Homepage" = "https://github.com/lisadratva/cell2specificity"
+"Bug Tracker" = "https://github.com/lisadratva/cell2specificity/issues"
 
 [tool.setuptools.packages.find]
 where = ["src"]
