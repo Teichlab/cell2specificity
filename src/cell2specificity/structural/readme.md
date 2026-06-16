@@ -12,7 +12,7 @@ This downloads `c2s_structure_latest.sif` (~14GB).
 
 ### 2. Prepare your input
 
-Create a TSV file with TCR-pMHC data. See [test.tsv](test.tsv) for format:
+Create a TSV file with TCR-pMHC data, eg:
 
 ```tsv
 pdbid	organism	mhc_class	mhc	peptide	va	ja	cdr3a	vb	jb	cdr3b	sample_id
